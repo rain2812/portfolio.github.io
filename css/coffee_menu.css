@@ -1,0 +1,86 @@
+body {
+    background-image: url(../Images/Coffee.jpg);
+    background-size: 100vh;
+    background-repeat: repeat;
+    background-position: center top 150px; /* 將背景圖片向下移動 150px */
+    font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
+}
+
+.transparent-element {
+    opacity: 0.5; /* 設置透明度為 50% */
+}
+
+h2 {
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+  
+h2, h3, p {
+    text-align: center;
+}
+
+.CafeMenu {
+    width: 80%;
+    background-color: rgba(219, 181, 132, 0.8);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    max-width: 60rem;
+}
+
+hr {
+    height: 2px;
+    background-color: brown;
+    border-color: brown;
+}
+  
+.item p {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+  
+.flavor, .dessert {
+    text-align: left;
+    width: 80%;
+}
+  
+.price {
+    text-align: right;
+    width: 20%;
+}
+
+.bottom-line {
+    margin: 2rem 0 1rem;
+}
+
+/* FOOTER */
+footer {
+    font-size: 14px;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+  
+.address {
+    margin-bottom: 5px;
+}
+
+footer a {
+    color: black;
+}
+
+footer a:visited { /* 當連結已被訪問過時 */
+    color: black;
+}
+
+footer a:hover { /* 鼠標移上去時 */
+    color: brown;
+}
+
+footer a:active { /* 當連結被用戶點擊並處於「活動」狀態時 */
+    color: brown;
+}

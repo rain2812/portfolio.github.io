@@ -1,0 +1,239 @@
+p {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-right: 100rem; /* 內文長度過長後換行 */
+}
+
+article {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-indent: 2rem; /* 首列縮排 */
+    padding-right: 1000px; /* 內文長度過長後換行 */
+}
+
+.content { /* 首頁內容 */
+    height: 80vh; /* 確保 .indexmain 元素占滿整個視窗80%高度 */
+    background-image: url(../Images/Home.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content h2 {
+    font-size: 6rem;
+    color:rgb(33, 30, 210);
+    text-align: center;
+}
+
+.content h3 {
+    font-size: 3rem;
+    color: rgb(51, 96, 192);
+    text-align: center;
+}
+
+.newsletter{ /* 首頁訂閱信 */
+    background-color: rgb(0, 0, 0);
+    color: white;
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.newsletter p {
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.newsletter input, .newsletter button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.newsletter input {
+    width: 200px;
+    margin-right: 10px;
+}
+
+.newsletter button {
+    width: 80px;
+    cursor: pointer;
+}
+
+input::placeholder { 
+    color: #ffffff; /* E-Mail輸入框的文字色彩 */
+}
+
+input:focus {
+    outline: none; /* 移除輸入框邊線的預設顏色 */
+    border-color: rgb(255, 255, 255); /* 指定輸入框邊線的顏色 */
+}
+
+.backgroundone { /* 米黃色背景 */
+    background: linear-gradient(90deg,rgba(250, 235, 215), rgba(250, 235, 215, 0.5),rgba(250, 235, 215, 1));
+    background-size: contain;
+    background-position: center;
+    border: 5px white solid;
+    padding: 2px 50px 10px;
+    margin: 0;
+    color: rgb(0, 48, 204);
+}
+
+.backgroundone li {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.backgroundone h2 {
+    margin-bottom: 10px;
+}
+
+.backgroundtwo {
+    background-image: url(../Images/BackgrondCode.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 5px rgb(255, 255, 255) solid;
+    border-radius: 20px; /* 圓弧轉角 */
+    padding: 20px 20px 20px 5rem; /* 內文縮排 */
+    margin: 2px 5px;
+    color: rgb(63, 86, 150);
+    box-shadow: 0 0 0.5rem 0.5rem #ffffff inset; /* 四邊柔和效果 */
+}
+
+.backgroundtwo li {
+    font-size: 2rem;
+}
+
+.hrone {
+    height: 1px;
+    background-color: gray;
+    border-color: gray;
+    margin: 5px 0 2px;
+}
+
+.program {
+    font-size: 1.2rem;
+    margin: 0.5rem 1000px 0 10px;
+}
+
+.program h3 {
+    padding: 0;
+    margin: 0;
+}
+
+/* 響應式設計語法(my screen is 2505px) */
+/* Huge size (Larger screen) */
+@media screen and (max-width: 2504px) {
+    article, p {
+        padding: 0;
+    }
+
+    .program {
+        margin: 0 900px 0 10px;
+    }
+
+    .newsletter p, article {
+        padding: 0;
+    }
+}
+
+/* Desktops */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+    html {
+        font-size: 6px;
+    }
+
+    article, p {
+        padding: 0;
+    }
+
+    .newsletter p, article {
+        padding: 0;
+    }
+
+    .program {
+        margin: 0 200px 0 10px;
+    }
+}
+
+/* 平板裝置 */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    html {
+        font-size: 4px;
+    }
+
+    article, p {
+        padding: 0;
+    }
+
+    .program {
+        margin: 0 30px 0 10px;
+    }
+
+    .newsletter p {
+        font-size: 13px;
+    }
+}
+
+/* 手機裝置 */
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 2px;
+    }
+
+    h2 {
+        margin: 2px 0 5px;
+    }
+
+    h3 {
+        margin: 5px 0px 2px;
+    }
+
+    article, p {
+        padding: 0;
+    }
+
+    img {
+        height: auto; /* 高度自動按比例縮放 */
+        margin-bottom: 2px; /* 添加底部間距 */
+        padding: 2px; /* 添加內邊距 */
+    }
+
+    .newsletter p {
+        font-size: 11px;
+    }
+    
+    .newsletter input, .newsletter button {
+        padding: 1px;
+    }
+    
+    .newsletter input {
+        font-size: 11px;
+        width: 150px;
+        margin: 0;
+    }
+    
+    .newsletter button {
+        font-size: 11px;
+        width: 60px;
+    }
+        
+    .backgroundtwo {
+        border: 1px white solid;
+        padding: 2px 5px;
+        margin: 1px 2px;
+        padding-left: 20px; /* 內文縮排 */
+    }
+
+    .program {
+        margin: 0 30px 0 10px;
+    }
+}

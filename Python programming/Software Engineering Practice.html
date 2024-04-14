@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Practice</title>
+    <link rel="stylesheet" href="../css/fixed.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../highlight/styles/github-dark.css">
+    <script src="../highlight/highlight.js"></script> 
+    <script>hljs.highlightAll();</script> 
+</head>
+<body>
+    <header>
+        <button class="menu">&#9776;</button>
+        <h1>Coffee Menu 咖啡菜單</h1>
+        <nav>
+          <ul class="top-level-menu">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../About me.html">關於我(About me)</a></li>
+    
+            <li>Web Design
+              <ul class="sub-menu">
+                <li><a href="../Web Design/Registration Form.html">Registration Form.html</a></li>
+                <li><a href="../Web Design/Coffee Menu.html">Coffee menu</a></li>
+                <li><a href="../Web Design/Nutrition Label.html">Nutrition Label</a></li>
+              </ul>
+            </li>
+    
+            <li>Front-end development
+              <ul class="sub-menu">
+                <li><a href="About me.html">Construction</a></li>
+              </ul>
+            </li>
+    
+            <li>Python programming
+              <ul class="sub-menu">
+                <li><a href="../Python programming/Calculus.html">Calculus</a></li>
+                <li><a href="../Python programming/Software Engineering Practice.html">Software Engineering Practice</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="backgroundtwo">
+            <h2>瀏覽來源資料夾內容</h2>
+            <section class="program">
+                <pre><code class="python">
+import os
+
+path = r"URL or local path"
+
+for dir_path, dir_names, file_names in os.walk(path):
+    print("目前路徑:", dir_path)
+
+    if len(dir_names) != 0:
+        print("子目錄：", dir_names)
+    else:
+        print("沒有子目錄")
+    
+    if len(file_names) != 0:
+        print("檔案：", file_names)
+    else:
+        print("沒有子目錄")
+
+    for f in file_names:
+        print("檔案完整路徑：", os.path.join(dir_path, f))
+                </code></pre>
+            </section>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>備份檔案</h2>
+            <section class="program">
+                <pre><code class="python">
+import argparse
+import os
+from os import path
+import shutil
+import sys
+
+parser = argparse.ArgumentParser() #建立解析命令的物件
+parser.add_argument("src",help="來源資料夾路徑") #新增參數src，加入要處置的命令參數
+parser.add_argument("dest",help="目標資料夾路徑")
+args = parser.parse_args() #解析命令參數
+
+if path.isdir(args.src): #如果src參數值是"資料夾路徑"
+    #在路徑後面加上路徑分隔字元(如："\")
+    src = path.join(args.src, "")
+else:
+    print('"{}"不是資料夾路徑!'.format(args.src))
+    sys.exit(2)
+
+if path.isdir(args.dest):
+    dest = path.join(args.dest, "")
+else:
+    print('"{}"不是資料夾路徑!'.format(args.dest))
+    sys.exit(2)
+
+for dir_path, dir_names, file_names in os.walk(src):
+    folder = dir_path.replace(src,"")#取出路徑的資料夾名稱
+    dest_path = dest #目標路徑
+    print("目前路徑:", dir_path)
+
+    if folder == "":
+        print("目前在根目錄")
+    else:
+        print("資料夾路徑：", folder)
+        dest_path = path.join(dest, folder) #合併成目標路徑
+                
+        if not path.isdir(dest_path): #如果目標路徑不是資料夾...
+            print("新增資料夾：", dest_path)
+            os.makedirs(dest_path) #新增資料夾
+
+    for f in file_names:
+        src_path = path.join(dir_path, f)
+        save_path = path.join(dest_path, f) #結合目標路徑和檔名
+
+        if not path.isfile(save_path): #如果目標檔案不存在
+            shutil.copy2(src_path, save_path) #則直接複製檔案
+
+        else:
+            src_time = int(path.getmtime(src_path)) #來源檔案修改時間
+            dest_time =  int(path.getmtime(save_path)) #目標檔案修改時間
+
+            if src_time > dest_time: #若來源檔案修改時間 > 目標檔
+                shutil.copy2(src_path, save_path) #則複製檔案
+                
+#cmd 執行指令：python backup.py 來源路徑 目標路徑                    
+                </code></pre>
+            </section> 
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>YouTube影片下載</h2>
+            <h3>前置作業</h3>
+            <p>除了內建的標準程式庫，還需先安裝pytube套件，而套件是一組執行某項功能模組的集合。</p>
+            <ol>
+                <li>首先開啟cmd後，輸入安裝指令pip install pytube --user(user為解決權限問題的選擇性參數)。</li>
+                <ul class="indenttwo">
+                    <li>安裝後可能會有警告，即pytube.exe被安裝的路徑沒有在系統的 PATH 變數中。</li>
+                    <li>按下Win+S搜尋「環境變數」，或從系統>進階設定中找出「環境變數」。</li>
+                    <li>在「系統變數」區域中，找到名為 PATH 的變數，並將其選中後點擊「編輯」。</li>
+                    <li>並新增pytube.exe 的安裝路徑在其中後，重啟命令提示符窗口。</li>
+                </ul>
+                <li>打開CMD後，可以使用"pip list"列舉已安裝的所有套件。</li>
+                <ul>
+                    <li>pip list -o：列出可更新的套件。</li>
+                    <li>pip install --upgrade 套件名：更新 (--upgrade可用-U取代)</li>
+                    <li>pip -m install --upgrade pip：更新pip工具 (m=minimal)</li>
+                    <li>pip uninstall 套件名：解除安裝</li>
+                    <li>pip show 套件名：顯示套件詳細資料</li>
+                </ul>
+            </ol>
+            <h3>YouTube影片下載程式碼</h3>
+            <article>
+                python tube.py -h：確認指令輸入方式。<br>
+                usage: tube.py [-h] [-r RESOLUTION] [-o OUTPUT_PATH] url<br>
+                positional arguments: url 指定YouTube視訊網址<br>
+                options:<br>
+                -h, --help            show this help message and exit<br>
+                -r RESOLUTION, --resolution RESOLUTION 指定影片畫質，例如: 720p, 1080p<br>
+                -o OUTPUT_PATH, --output_path OUTPUT_PATH  指定儲存影片的資料夾<br>
+            </article>
+            <section class="program">
+                <pre><code class="python">
+# 使用此程式前，需先安裝pytube套件
+# 安裝指令pip install pytube --user(user為解決權限問題的選擇性參數)
+# 安裝後可能會有警告，即pytube.exe被安裝的路徑沒有在系統的 PATH 變數中
+# 所以須將pytube.exe的安裝路徑添加到系統的 PATH 變數中
+import argparse
+from pytube import YouTube
+
+def list_available_resolutions(url):#列舉可用的解析度
+    try:
+        yt = YouTube(url)
+        video_list = yt.streams.filter(type="video").all() #取得全部影片類型的串流物件
+        resolutions = set(v.resolution for v in video_list) #建立一個包含可用解析度的集合
+        return sorted(resolutions, key=lambda s: int(s[:-1]), reverse=True)
+    except Exception as e:
+        print(f"獲取解析度時發生錯誤：{e}")
+        return []
+
+def download_video(url, resolution, output_path="."):
+    try:
+        yt = YouTube(url, on_progress_callback=on_progress)
+        video = yt.streams.filter(res=resolution).first() #取得第一個符合resolution的串流物件
+
+        if video:
+            print(f"開始下載 {resolution} 影片...")
+            video.download(output_path) #將檔案下載到指定資料夾路徑output_path內
+            print("下載完成！")
+        else:
+            print(f"找不到符合 {resolution} 的影片串流。")
+    except Exception as e:
+        print(f"下載影片時發生錯誤：{e}")
+
+def on_progress(stream, chunk, remaining): #顯示下載進度
+    #steam串流物件 chunk檔案資料內容 remaining尚待下載的位元組大小
+    total = stream.filesize #串流物件的檔案大小
+    percent = (total - remaining) / total * 100
+    print("下載中...{:05.2f}%".format(percent), end="\r")
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("url", help="指定YouTube視訊網址")
+    parser.add_argument("-r", "--resolution", help="指定影片畫質，例如: 720p, 1080p")
+    parser.add_argument("-o", "--output_path", help="指定儲存影片的資料夾")
+    args = parser.parse_args()
+
+    if args.url:
+        resolutions = list_available_resolutions(args.url)
+        if resolutions:
+            print("可用解析度：", resolutions)
+        else:
+            print("無法獲取可用解析度。")
+
+        if args.resolution:
+            if args.resolution in resolutions:
+                download_resolution = args.resolution
+            else:
+                print("指定的解析度無效，請選擇可用的解析度。")
+                return
+        else:
+            download_resolution = input("請選擇要下載的解析度：")
+
+        output_path = args.output_path or "."
+        download_video(args.url, download_resolution, output_path)
+    else:
+        print("請提供YouTube網址。")
+
+if __name__ == "__main__":
+    main()
+                </code></pre>
+            </section>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>網路爬蟲</h2>
+            <p>Selenium：<a href="seleniumhq.org" alt="Selenium網址">seleniumhq.org</a></p>
+            <h3>Selenium涵蓋三組工具</h3>
+            <ol>
+                <li>WebDiver：Allow an external program to control the browser.</li>
+                <li>Selenium IDE：瀏覽器外掛，可錄下並重複執行操作紀錄。</li>
+                <li>Selenium-Grid：讓WebDiver同時操控多個平台與瀏覽器的工具。</li>
+            </ol>
+            <h3>WebDiver 瀏覽器自動化API</h3>
+            <h3>Install the driver.</h3>
+            <ol>
+                <li>Download the driver.</li>
+                <ul class="indenttwo">
+                    <p class="wordred">Please pay attention to version compatibility issues.</p>
+                    <li>Chrome's driver：chromedriver. <a href="https://chromedriver.chromium.org/downloads" alt="Chromedriver Downloads">Chromedriver Downloads</a></li>
+                    <li>macOS's driver：Safari</li>
+                </ul>
+                <li>Open CMD in your path.</li>
+                <li>Input "pip install selenium" and run it.</li>
+                <li>Click on chrome.exe in your directory path, and a blank Chrome browser will open.</li>
+            </ol>
+
+            <h3>Open a blank Chrome browser.</h3>
+            <article>If you want to open a blank Chrome browser, you can enter Python and execute the following code, or save the code into a file and run it directly.</article>
+            <section class="program">
+                <pre><code class="python">
+from selenium import webdriver
+
+cService = webdriver.ChromeService(executable_path='your driver path') #在 Selenium 4.6 或以上的版本中，你不能直接將 executable_path 傳遞給 Chrome()，前面需要加上executable_path。
+driver = webdriver.Chrome(service=cService) #建立WebDriver物件
+                </code></pre>
+            </section>
+
+            <h3>選定網頁元素</h3>
+            <article>指令 find_element_by_OOO 代表藉由OOO找尋元素，範例如下：</article>
+            <ul>
+                <li>find_element_by_id：元素的id名稱。</li>
+                <li>find_element_by_class_name：元素的class名稱。</li>
+                <li>find_element_by_name：元素的name名稱。</li>
+                <li>find_element_by_tag_name：元素的標籤名稱。</li>
+            </ul>
+            <article>若指令的element有加s則為複數型指令，傳回列表類型的值，反之則為單數型指令，僅傳回一個值。</article>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>Google 試算表自動化</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>Flask 網站建置</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>資料庫與留言板</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>LINE 聊天機器人</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>圖檔浮水印產生器</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>自動縮圖產生器</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>人臉偵測及辨識</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>家電控制</h2>
+        </section>
+
+        <section class="backgroundtwo">
+            <h2>臉部門禁系統</h2>
+        </section>
+    </main>
+    <footer>
+        <section>
+            <p>Contact Method：panerter@gmail.com</p>
+        </section>
+    </footer>
+    <script>
+        document.querySelectorAll('pre code').forEach((block) => {
+            if (block.dataset.highlighted) {
+                delete block.dataset.highlighted;
+            }
+            hljs.highlightElement(block);
+            block.dataset.highlighted = 'yes';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+* { /* 將邊框預設值歸零 */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mark {
+    background-color: rgb(190, 190, 190);
+    border: 1px black solid;
+    padding: 1px 4px;
+}
+
+.wordred {
+    color: red;
+}
+
+.wordgreen {
+    color: green;
+}
+
+.indenttwo { /* 縮排2字元 */
+    padding-left: 2rem;
+}
+
+.indentfour { /* 縮排4字元 */
+    padding-left: 4rem;
+}
+
+.bold { /* 粗體字 */
+    font-weight: 800;
+}
+
+html {
+    font-size: 10px; /* 設定根元素字體大小，原值16px */
+}
+
+h2  {
+    font-size: 2.8rem; /* 原值24px */
+    color:rgb(0, 48, 204);
+}
+
+h3 { 
+    margin: 15px 0px 5px;
+    font-size: 2.4rem; /* 原值18.7px */
+}
+
+a {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%; /* 圖片的最大寬度設為其容器的100% */
+    height: auto; /* 高度自動按比例縮放 */
+    margin-bottom: 10px; /* 添加底部間距 */
+    box-sizing: border-box;
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus</title>
+    <link rel="stylesheet" href="../css/fixed.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/typography.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../highlight/styles/github-dark.css">
+    <script src="../highlight/highlight.js"></script> 
+    <script>hljs.highlightAll();</script> 
+</head>
+<body>
+    <header>
+      <button class="menu">&#9776;</button>
+      <h1>Coffee Menu 咖啡菜單</h1>
+      <nav>
+        <ul class="top-level-menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../About me.html">關於我(About me)</a></li>
+  
+          <li>Web Design
+            <ul class="sub-menu">
+              <li><a href="../Web Design/Registration Form.html">Registration Form.html</a></li>
+              <li><a href="../Web Design/Coffee Menu.html">Coffee menu</a></li>
+              <li><a href="../Web Design/Nutrition Label.html">Nutrition Label</a></li>
+            </ul>
+          </li>
+  
+          <li>Front-end development
+            <ul class="sub-menu">
+              <li><a href="About me.html">Construction</a></li>
+            </ul>
+          </li>
+  
+          <li>Python programming
+            <ul class="sub-menu">
+              <li><a href="../Python programming/Calculus.html">Calculus</a></li>
+              <li><a href="../Python programming/Software Engineering Practice.html">Software Engineering Practice</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="backgroundtwo">
+        <h2>計算加總</h2>
+        <div class="program">
+          <pre><code class="python">
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-s", "--sum", nargs="+", type=int
+                    , required=True,help="計算加總")
+args = parser.parse_args() #解析命令參數
+total = 0
+
+print("參數列表：", args.sum)
+for val in args.sum:
+    total += val
+
+print("加總結果：", total)
+
+input("Press Enter to exit...")
+          </code></pre>
+        </div>
+        <h3>bat執行檔</h3>
+        <div class="program">
+          <pre><code class="batch">
+@echo off  
+python "D:\Python\Python Application Program\calculator\calc.py" -s 1 2 3
+pause
+
+REM @echo off 用於關閉命令回顯，python 命令後面跟著你的 Python 腳本路徑以及參數 -s 和相應的數字列表。 pause 指令用於在腳本執行完後暫停命令提示字元窗口，以便你可以查看輸出。
+          </code></pre>
+        </div>
+      </section>
+      <section class="backgroundtwo">
+        <h2>BMI計算</h2>
+        <div class="program">
+          <pre><code class="python">
+#轉換資料型態
+
+height = float(input("請輸入您的身高(公分)\n"))
+weight = float(input("請輸入您的體重(公斤)\n"))
+BMI = round(weight/(height/100)**2,1)
+
+if BMI < 18.5:
+  print(f"您的BMI是：{BMI} (體重過輕)")
+elif BMI < 24:
+  print(f"您的BMI是：{BMI} (正常體位)")
+elif BMI < 27:
+  print(f"您的BMI是：{BMI} (體重過重)")
+elif BMI < 30:
+  print(f"您的BMI是：{BMI} (輕度肥胖)")
+elif BMI < 35:
+  print(f"您的BMI是：{BMI} (中度肥胖)")
+else:
+  print(f"您的BMI是：{BMI} (重度肥胖)")
+          </code></pre>
+        </div>
+      </section>
+      <section class="backgroundtwo">
+        <h2>綜合健康計算機 Comprehensive Health Computer</h2>
+        <div class="program">
+          <pre><code class="python">
+# 綜合健康計算機 Comprehensive Health Computer
+# 計算BMI、BMR(基礎代謝率)、TDEE(總熱量消耗)
+
+def get_bmi(height, weight):
+    bmi = weight/(height/100)**2
+    return round(bmi, 1)
+
+def get_bmr(gender, height, weight, age):
+    if gender == "男":
+        bmr = 66 + 13.7 * weight + 5 * height - 6.8 * age
+    else:
+        bmr = 655 + 9.6 * weight + 1.8 * height - 4.7 * age
+    return round(bmr, 2)
+
+def get_tdee(gender, height, weight, age, act):
+    bmr = get_bmr(gender, height, weight, age)
+    if act == "1":
+        tdee = bmr * 1.2
+    elif act == "2":
+        tdee = bmr * 1.375
+    elif act == "3":
+        tdee = bmr * 1.55
+    elif act == "4":
+        tdee = bmr * 1.725
+    elif act == "5":
+        tdee = bmr * 1.9
+    return round(tdee, 2)
+
+print("歡迎使用綜合健康計算機~")
+print("(1)計算BMI")
+print("(2)計算基礎代謝率(BMR)")
+print("(2)計算總熱量消耗(TDEE)")
+item = input("請選擇要計算的項目 (輸入1 or 2 or 3)：")
+if item == "1":
+    height = float(input("請輸入您的身高(公分)："))
+    weight = float(input("請輸入您的體重(公斤)："))
+    bmi = get_bmi(height, weight)
+    print(f"您的BMI：{bmi}")
+elif item == "2":
+    gender = str(input("請輸入您的性別(男or女)："))
+    height = float(input("請輸入您的身高(公分)："))
+    weight = float(input("請輸入您的體重(公斤)："))
+    age = int(input("請輸入您的年齡："))
+    bmr = get_bmr(gender, height, weight, age)
+    print(f"您的基礎代謝率(BMR)：{bmr}")
+else:
+    gender = str(input("請輸入您的性別(男or女)："))
+    height = float(input("請輸入您的身高(公分)："))
+    weight = float(input("請輸入您的體重(公斤)："))
+    age = int(input("請輸入您的年齡："))
+    print("(1)久坐、幾乎沒運動")
+    print("(2)每周低強度運動1~3天")
+    print("(3)每周中強度運動3~5天")
+    print("(4)每周高強度運動6~7天")
+    print("(5)勞力密集工作或是每天高強度運動")
+    act = input("請選擇您的運動量 (輸入1~5)：")
+    tdee = get_tdee(gender, height, weight, age, act)
+    print(f"您的總熱量消耗(TDEE)：{tdee}")
+
+input("Press Enter to exit...")
+          </code></pre>
+        </div>
+      </section>
+    </main>
+    <footer>
+        <section>
+            <p>Contact Method：panerter@gmail.com</p>
+        </section>
+    </footer>
+    <script>
+      document.querySelectorAll('pre code').forEach((block) => {
+          if (block.dataset.highlighted) {
+              delete block.dataset.highlighted;
+          }
+          hljs.highlightElement(block);
+          block.dataset.highlighted = 'yes';
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Label</title>
+    <link rel="stylesheet" href="../css/fixed.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/nutrition_label.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../highlight/styles/github-dark.css">
+</head>
+<body>
+    <header>
+        <button class="menu">&#9776;</button>
+        <h1>Nutrition Label</h1>
+        <nav>
+            <ul class="top-level-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../About me.html">關於我(About me)</a></li>
+        
+                <li>Web Design
+                    <ul class="sub-menu">
+                        <li><a href="../Web Design/Registration Form.html">Registration Form.html</a></li>
+                        <li><a href="../Web Design/Coffee Menu.html">Coffee menu</a></li>
+                        <li><a href="../Web Design/Nutrition Label.html">Nutrition Label</a></li>
+                    </ul>
+                </li>
+        
+                <li>Front-end development
+                    <ul class="sub-menu">
+                        <li><a href="About me.html">Construction</a></li>
+                    </ul>
+                </li>
+        
+                <li>Python programming
+                    <ul class="sub-menu">
+                        <li><a href="../Python programming/Calculus.html">Calculus</a></li>
+                        <li><a href="../Python programming/Software Engineering Practice.html">Software Engineering Practice</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="background">
+        <div class="label">
+            <h2 class="marktitle">營養標示</h2>
+            <div class="doubleflex"><p class="half">每一份量<span>30</span></p><p class="half">公克</p></div>
+            <div class="doubleflex"><p class="half">本包裝含<span>2</span></p><p class="half">份</p></div>
+            <div class="divider"></div>
+            <div class="doubleflex"><p class="half"></p><p class="half">每份<span>每 100 公克</span></p></div>
+            <div class="divider"></div>
+            <div class="doubleflex"><p class="half">熱量<span>162</span></p><p class="half">大卡<span>541 大卡</span></p></div>
+            <div class="doubleflex"><p class="half">蛋白質<span>1.6</span></p><p class="half">公克<span>5.2 公克</span></p></div>
+            <div class="doubleflex"><p class="half">脂肪<span>9.6</span></p><p class="half">公克<span>31.9 公克</span></p></div>
+            <div class="doubleflex"><p class="half indenttwo">飽和脂肪<span>4.8</span></p><p class="half">公克<span>15.9 公克</span></p></div>
+            <div class="doubleflex"><p class="half indenttwo">反式脂肪<span>0</span></p><p class="half">公克<span>0 公克</span></p></div>
+            <div class="doubleflex"><p class="half">碳水化合物<span>17.5</span></p><p class="half">公克<span>58.3 公克</span></p></div>
+            <div class="doubleflex"><p class="half indenttwo">糖<span>3.4</span></p><p class="half">公克<span>11.4 公克</span></p></div>
+            <div class="doubleflex"><p class="half">鈉<span>176</span></p><p class="half">毫克<span>585 毫克</span></p></div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <section>
+            <p>Contact Method：panerter@gmail.com</p>
+        </section>
+    </footer>
+    <script> //套入JavaScript以在網頁上顯示代碼編輯框
+        document.querySelectorAll('pre code').forEach((block) => {
+            if (block.dataset.highlighted) {
+                delete block.dataset.highlighted;
+            }
+            hljs.highlightElement(block);
+            block.dataset.highlighted = 'yes';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain's Profolio</title>
+    <link rel="stylesheet" href="./css/fixed.css">
+    <link rel="stylesheet" href="./css/navigation.css">
+    <link rel="stylesheet" href="./css/typography.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>  <!--在 HTML 頁面中添加以下 script 標籤來引入 EmailJS 庫(收email用)-->
+    <script type="text/javascript" src="./sendmail/sendmail.js"></script>  <!--引入sendmail.js 當有使用者提交email時寄給我-->
+</head>
+<body>
+    <header> <!--導覽列-->
+    <button class="menu">&#9776;</button>
+    <h1>Rain's Profolio</h1>
+    <nav>
+      <ul class="top-level-menu">
+        <li><a href="About me.html">關於我(About me)</a></li>
+
+        <li>Web Design
+          <ul class="sub-menu">
+            <li><a href="./Web Design/Registration Form.html">Registration Form</a></li>
+            <li><a href="./Web Design/Coffee menu.html">Coffee menu</a></li>
+            <li><a href="./Web Design/Nutrition Label.html">Nutrition Label</a></li>
+          </ul>
+        </li>
+
+        <li>Front-end development
+          <ul class="sub-menu">
+            <li><a href="About me.html">Construction</a></li>
+          </ul>
+        </li>
+
+        <li>Python programming
+          <ul class="sub-menu">
+            <li><a href="./Python programming/Calculus.html">Calculus</a></li>
+            <li><a href="./Python programming/Software Engineering Practice.html">Software Engineering Practice</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    </header>
+    <main> <!--首頁內容-->
+      <section class="content">
+          <span><h2>Exploring the Intersection of Design and Technology</h2></span>
+          <span><h3>Unlocking the Doors to My Design Realm</h3></span>
+      </section>
+      <section class="newsletter">
+          <p class="bold">Welcome to subscribe to my website newsletter, where you can receive updates on new content periodically!</p>
+          <form  id="newsletter-form">
+            <input type="email" name="from_email" placeholder="Please enter your email" required>
+            <button type="submit">Send out</button>
+          </form>
+      </section>
+    </main>
+    <footer> <!--頁尾-->
+      <section>
+        <p>Contact Information：panerter@gmail.com</p>
+        <p>Rain Lin</p>
+      </section>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const menuButton = document.querySelector('.menu');
+        const navLinks = document.querySelector('.top-level-menu');
+
+        // 添加按鈕點擊事件監聽器
+        menuButton.addEventListener('click', () => {
+            console.log('Button clicked'); // 檢查按鈕點擊事件是否如預期觸發
+            // 切換導覽列的顯示和隱藏狀態
+            navLinks.classList.toggle('show-nav');
+            navLinks.classList.toggle('show');
+        });
+
+        // 導覽列連結點擊事件監聽器
+        const navItems = document.querySelectorAll('.top-level-menu > li');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                console.log(navLinks.classList); // 檢查導覽列元素的類別列表
+                // 隱藏其他導覽列連結的子選單
+                navItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.querySelector('.sub-menu').classList.remove('show');
+                    }
+                });
+                // 切換目前連結的子選單的顯示狀態
+                item.querySelector('.sub-menu').classList.toggle('show');
+            });
+        });
+      });
+    </script>
+</body>
+</html>
