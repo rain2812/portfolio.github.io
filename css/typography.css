@@ -35,36 +35,59 @@ article {
 }
 
 .newsletter{ /* 首頁訂閱信 */
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(20, 120, 150);
+    width: 40%;
     color: white;
+    margin: 0 auto; /* 背景置中 */
     display: flex;
-    place-items: center;
     flex-direction: column;
-    font-size: 20px;
-    padding: 10px;
+    align-items: center;
+    padding: 1rem 0;
+    box-shadow: 0 0 0.5rem 0.5rem #7aaaaa inset; /* 四邊柔和效果 */
 }
 
 .newsletter p {
-    margin-bottom: 10px;
-    padding: 0;
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+    padding-right: 0;
 }
 
-.newsletter input, .newsletter button {
-    color: white;
-    background-color: transparent;
-    border: 1px solid;
-    padding: 10px;
-    border-radius: 5px;
+.newsletter-form {
+    background-color: rgb(215, 225, 210);
+    width: 40%;
+    color: black;
+    margin: 0 auto; /* 背景置中 */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1px gray solid;
 }
 
-.newsletter input {
-    width: 200px;
-    margin-right: 10px;
+.form-group {
+    margin-bottom: 1rem;
 }
 
-.newsletter button {
-    width: 80px;
-    cursor: pointer;
+.name, .email, .message {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input, .newslette-form button {
+    color: rgb(0, 0, 0);
+    border: 1px rgb(192, 192, 192) solid;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.newsletter input, .form-control { /* 輸入框設置 */
+    width: 100%;
+    margin-right: 1rem;
+}
+
+.form-group textarea { /* Message輸入框設置 */
+    height: 10rem;
+    font-size: 2rem;
+    border: 1px rgb(192, 192, 192) solid;
 }
 
 input::placeholder { 
@@ -73,7 +96,14 @@ input::placeholder {
 
 input:focus {
     outline: none; /* 移除輸入框邊線的預設顏色 */
-    border-color: rgb(255, 255, 255); /* 指定輸入框邊線的顏色 */
+    border-color: rgb(0, 0, 0); /* 指定輸入框邊線的顏色 */
+}
+
+.newsletter-form button { /* 按鈕設置 */
+    width: 8rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    background-color: rgb(40, 180, 220);
 }
 
 .backgroundone { /* 米黃色背景 */

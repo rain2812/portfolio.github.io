@@ -21,7 +21,7 @@ h1 {
 
 .top-level-menu { /* 第一層導覽選單的 CSS 選擇器 */
     position: absolute;
-    right: 5vw;
+    right: 2vw;
     top: 0;
     color: white;
     line-height: 150px; /* 設置行高 */
@@ -29,7 +29,7 @@ h1 {
   
 .top-level-menu li { /* 首頁導覽列外觀及排版設置 */
     display: inline;
-    margin-right: 4vw; /* 設置文字間隔 */
+    margin-right: 2vw; /* 設置文字間隔 */
     position: relative; /* 設置導覽列第一層下拉式選單的框框位置 */
     line-height: 20px; /* 設置導覽列第一層下拉式選單的框框行高 */
     font-size: 1.8rem;
@@ -79,7 +79,7 @@ nav .sub-menu li a {
 .menu {
     display: none;
     left: 5rem;
-    font-size: 10rem;
+    font-size: 50px;
 }
 
 /* 響應式設計語法(my screen is 2505px) */

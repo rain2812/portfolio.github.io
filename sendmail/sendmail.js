@@ -1,13 +1,20 @@
-// 初始化EmailJS
-emailjs.init('service_gm5otf4');
+function sendMail(){
+    var params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
+    };
 
-// 發送電子郵件
-const form = document.getElementById('newsletter-form');
+    const serviceID = "service_gm5otf4";
+    const templateID = "template_pbgq77c"
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); // 防止表單提交
-
-    emailjs.sendForm('service_gm5otf4', 'template_pbgq77c', '#newsletter-form')
-        .then(response => console.log('Email sent successfully!', response.status, response.text))
-        .catch(error => console.log('Failed to send email:', error));
-});
+    emailjs.send(serviceID,templateID,params)
+    .then((res) =>{
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        console.log(res);
+        alert("your message send successfully")
+    })
+    .catch((err) => console.log(err));
+}
