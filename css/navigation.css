@@ -1,6 +1,6 @@
 header{ /* 導覽列設置 */
     background-color: rgb(0, 0, 0);
-    height: 150px;
+    height: 15rem;
     width:100%;
     position: sticky;
     top: 0; /* 注意需設定 top, left, right 或 bottom，這樣才能在捲動後固定在指定的位置 */
@@ -8,15 +8,13 @@ header{ /* 導覽列設置 */
 
 h1 {
     color: rgb(255, 255, 255);
-    background-image: url(../Images/logo.png); /* LOGO圖 */
-    background-size: contain; /* 背景圖片完全顯示在容器內，不會被裁切 */
-    background-repeat: no-repeat; /* 背景圖片不重複顯示 */
-    background-position: center; /* 將背景圖片在水平方向上左對齊，並垂直居中 */
-    position: absolute;
-    top: 0; /* LOGO位置調整 */
-    line-height: 150px; /* LOGO行高調整 */
-    width: 33vw; /* LOGO寬度 */
     text-indent: -9999px; /* 將標題文字移走，只留LOGO */
+}
+
+.logo { /* logo圖設置 */
+    position: relative;
+    height: 15rem;
+    margin: 0 0 0 10rem;
 }
 
 .top-level-menu { /* 第一層導覽選單的 CSS 選擇器 */
@@ -24,7 +22,7 @@ h1 {
     right: 2vw;
     top: 0;
     color: white;
-    line-height: 150px; /* 設置行高 */
+    line-height: 15rem; /* 設置行高 */
 }
   
 .top-level-menu li { /* 首頁導覽列外觀及排版設置 */
@@ -97,7 +95,12 @@ nav .sub-menu li a {
     }
 
     header {
-        height: 120px;
+        height: 25rem;
+    }
+
+    .logo {
+        height: 25rem;
+        margin-left: 20rem;
     }
 
     header h1 {
@@ -164,7 +167,12 @@ nav .sub-menu li a {
     }
 
     header {
-        height: 50px;
+        height: 25rem;
+    }
+
+    .logo {
+        height: 25rem;
+        margin-left: 20rem;
     }
 
     header h1 {

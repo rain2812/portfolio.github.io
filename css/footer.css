@@ -1,60 +1,8 @@
 footer { /*FOOTER*/
+    display: flex;
+    justify-content: center;
     background-color: black;
     color: rgb(160, 160, 160);
-    padding-left: 20px;
     font-size: 1rem;
-}
-
-footer p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-.Update.record { /* 首頁更新紀錄框 */
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid #ccc;
-    position: absolute; /* 使用絕對定位 */
-    padding: 10px;
-    margin-bottom: 20px;
-    left: 10px; 
-    bottom: 100px;
-    font-size: 2.4rem;
-}
-
-.Update.record summary { /* 首頁更新紀錄框 */
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* Desktops */
-@media screen and (min-width: 1025px) and (max-width: 1280px) {
-    .Update.record p {
-        padding: 0;
-    }
-}
-
-/* 平板裝置 */
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-    html {
-        font-size: 6px;
-    }
-
-    .Update.record {
-        padding: 0;
-    }
-}
-
-/* 手機裝置 */
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 4px;
-    }
-
-    footer {
-        padding: 0;
-    }
-
-    .Update.record {
-        padding: 0;
-    }
+    padding: 1rem;
 }

@@ -8,15 +8,14 @@
     <link rel="stylesheet" href="../css/navigation.css">
     <link rel="stylesheet" href="../css/nutrition_label.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../highlight/styles/github-dark.css">
 </head>
 <body>
     <header>
         <button class="menu">&#9776;</button>
+        <a href="../index.html"><img src="../Images/logo.png" alt="網站 Logo" class="logo"></a>
         <h1>Nutrition Label</h1>
         <nav>
             <ul class="top-level-menu">
-                <li><a href="../index.html">Home</a></li>
                 <li><a href="../About me.html">關於我(About me)</a></li>
         
                 <li>Web Design
@@ -67,14 +66,5 @@
             <p>Contact Method：panerter@gmail.com</p>
         </section>
     </footer>
-    <script> //套入JavaScript以在網頁上顯示代碼編輯框
-        document.querySelectorAll('pre code').forEach((block) => {
-            if (block.dataset.highlighted) {
-                delete block.dataset.highlighted;
-            }
-            hljs.highlightElement(block);
-            block.dataset.highlighted = 'yes';
-        });
-    </script>
 </body>
 </html>

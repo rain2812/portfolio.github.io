@@ -1,14 +1,10 @@
 p {
     font-size: 2rem;
-    margin-bottom: 1rem;
-    padding-right: 100rem; /* 內文長度過長後換行 */
 }
 
 article {
-    margin-bottom: 1rem;
     font-size: 2rem;
     text-indent: 2rem; /* 首列縮排 */
-    padding-right: 1000px; /* 內文長度過長後換行 */
 }
 
 .content { /* 首頁內容 */
@@ -162,10 +158,6 @@ input:focus {
 /* 響應式設計語法(my screen is 2505px) */
 /* Huge size (Larger screen) */
 @media screen and (max-width: 2504px) {
-    article, p {
-        padding: 0;
-    }
-
     .program {
         margin: 0 900px 0 10px;
     }
@@ -181,10 +173,6 @@ input:focus {
         font-size: 6px;
     }
 
-    article, p {
-        padding: 0;
-    }
-
     .newsletter p, article {
         padding: 0;
     }
@@ -198,10 +186,6 @@ input:focus {
 @media screen and (min-width: 481px) and (max-width: 1024px) {
     html {
         font-size: 4px;
-    }
-
-    article, p {
-        padding: 0;
     }
 
     .program {
@@ -225,10 +209,6 @@ input:focus {
 
     h3 {
         margin: 5px 0px 2px;
-    }
-
-    article, p {
-        padding: 0;
     }
 
     img {

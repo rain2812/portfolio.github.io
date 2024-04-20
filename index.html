@@ -21,7 +21,8 @@
 <body>
   <header> <!--導覽列-->
   <button class="menu">&#9776;</button>
-  <h1>Rain's Profolio</h1>
+  <a href="index.html"><img src="./Images/logo.png" alt="網站 Logo" class="logo"></a>
+  <h1>Rain's Portfolio</h1>
   <nav>
     <ul class="top-level-menu">
       <li><a href="About me.html">關於我(About me)</a></li>
@@ -59,12 +60,12 @@
       </div>
       <div class="newsletter-form">
         <div class="form-group">
-          <h4 class="name">*Name</h4>
-          <input type="text" class="form-control" id="name"  placeholder="Please enter your name" required>
+          <h4 class="name">Name <span class="wordred">*</span></h4>
+          <input type="text" class="form-control" id="name"  placeholder="Please enter your name" required />
         </div>
         <div class="form-group">
-          <h4 class="email">*Email</h4>
-          <input type="email" class="form-control" id="email"  placeholder="Please enter your email" required>
+          <h4 class="email">Email <span class="wordred">*</span></h4>
+          <input type="email" class="form-control" id="email"  placeholder="Please enter your email" required />
         </div>
         <div class="form-group">
           <h4 class="message">Message</h4>
@@ -72,43 +73,10 @@
         </div>
         <button type="submit" onclick="sendMail()">Send out</button>
       </div>
-    </section>      
+    </section>
   </main>
   <footer> <!--頁尾-->
-    <section>
-      <p>Contact Information：panerter@gmail.com</p>
-      <p>Rain Lin</p>
-    </section>
+    <p>©2024 by Rain Lin</p>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const menuButton = document.querySelector('.menu');
-      const navLinks = document.querySelector('.top-level-menu');
-
-      // 添加按鈕點擊事件監聽器
-      menuButton.addEventListener('click', () => {
-          console.log('Button clicked'); // 檢查按鈕點擊事件是否如預期觸發
-          // 切換導覽列的顯示和隱藏狀態
-          navLinks.classList.toggle('show-nav');
-          navLinks.classList.toggle('show');
-      });
-
-      // 導覽列連結點擊事件監聽器
-      const navItems = document.querySelectorAll('.top-level-menu > li');
-      navItems.forEach(item => {
-          item.addEventListener('click', () => {
-              console.log(navLinks.classList); // 檢查導覽列元素的類別列表
-              // 隱藏其他導覽列連結的子選單
-              navItems.forEach(otherItem => {
-                  if (otherItem !== item) {
-                      otherItem.querySelector('.sub-menu').classList.remove('show');
-                  }
-              });
-              // 切換目前連結的子選單的顯示狀態
-              item.querySelector('.sub-menu').classList.toggle('show');
-          });
-      });
-    });
-  </script>
 </body>
 </html>
