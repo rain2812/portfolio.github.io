@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questionaire</title>
+    <style>
+        @media (prefers-reduced-motion: no-preference) {
+        * {
+            scroll-behavior: smooth;
+        }
+        }
+
+        body {
+            color: #1b1b32;
+            font-family: Helvetica;
+            margin: 0;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            height: 150px;
+            background-color: #d3c096;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+        }
+
+        #logo {
+            width: max(100px, 6vw);
+            aspect-ratio: 1/1;
+            padding: 0.4rem;
+        }
+
+        h1 {
+            color: #13571f;
+            font-size: min(5vw, 1.8em);
+            text-align: center;
+        }
+
+        nav {
+            width: 50%;
+            max-width: 300px;
+            height: 50px;
+        }
+
+        nav > ul {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            padding-inline-start: 0;
+            margin-block: 0;
+        }
+
+        nav > ul > li {
+            color: #373764;
+            margin: 0 0.2rem;
+            padding: 0.2rem;
+            display: block;
+        }
+
+        nav > ul > li:hover {
+            background-color: #dfdfe2;
+            color: #1b1b32;
+            cursor: pointer;
+        }
+
+        li > a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Questionaire Content */
+        main {
+            padding-top: 50px;
+        }
+
+        section {
+            width: 80%;
+            margin: 0 auto 10px auto;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            font-family: Verdana, Tahoma;
+        }
+
+        h2 {
+            border-bottom: 4px solid #dfdfe2;
+            margin-top: 0px;
+            padding-top: 60px;
+        }
+
+        #info {
+            padding-top: 150px;
+        }
+
+        .form-row {
+            padding: 10px 5px 0 0;
+        }
+
+        input {
+            font-size: 16px;
+        }
+
+        .form-row label, .form-row input {
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .form-row input {
+            width: 50%;
+            text-align: left;
+        }
+        
+        .form-row label {
+            width: 70%;
+            min-width: 55px;
+            text-align: right;
+        }
+
+        .question-block {
+            text-align: left;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding-top: 5px;
+        }
+
+        p {
+            margin-top: 5px;
+            padding-left: 15px;
+            font-size: 20px;
+        }
+
+        p::before {
+            content: "Question #";
+        }
+
+        .question {
+            border: none;
+            padding-bottom: 0;
+        }
+
+        .answers-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #message {
+            width: 80%;
+            height: 10vh;
+            font-size: 1rem;
+        }
+
+        button {
+            display: block;
+            margin: 40px auto;
+            width: 20%;
+            padding: 15px;
+            font-size: 23px;
+            background: #d0d0d5;
+            border: 3px solid #3b3b4f;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #2a2a40;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer, footer a {
+            color: #dfdfe2;
+        }
+
+        address {
+            text-align: center;
+            padding: 0.3em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img id="logo" src="../Images/questionnaire-high-resolution-logo-black-transparent.png" alt="logo">
+        <h1>How to Learn English Questionnaire</h1>
+        <nav>
+            <ul>
+                <li><a href="#info" accesskey="1">Info</a></li>
+                <li><a href="#cost" accesskey="2">Cost</a></li>
+                <li><a href="#improve" accesskey="3">Improve</a></li>
+                <li><a href="#channels" accesskey="4">Channels</a></li>
+                <li><a href="#think" accesskey="5">Think</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form method="post" action="URL">
+            <section role="region" aria-labelledby="info">
+                <h2 id="info">Basic Information</h2>
+                <div class="form-row"><label for="name" id="name-label">Your Name： <input id="name" type="text" required placeholder="Enter Your Name" /></label></div>
+                <div class="form-row"><label for="email" id="email-label">Your Email： <input id="email" type="email" required placeholder="Enter Your Email" /></label></div>
+                <div class="form-row"><label for="birth-date" id="birth-label">Your birthday： <input id="birth-date" type="date" /></label></div>
+            </section>
+            <section role="region" aria-labelledby="cost">
+                <h2 id="cost">Learning cost</h2>
+                <div class="question-block">
+                    <p>1</p>
+                    <fieldset class="question" name="cost-question-one">
+                        <legend>How much do you spend on studying every month?</legend>
+                        <select id="dropdown">
+                            <option>Select an option</option>
+                            <option>No expenditure</option>
+                            <option>Less than 500</option>
+                            <option>Less than 1000</option>
+                            <option>Less than 5000</option>
+                            <option>Over 5000</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div class="question-block">
+                    <p>2</p>
+                    <fieldset class="question" name="cost-question-two">
+                        <legend>How long have you been learning English?</legend>
+                        <select id="dropdown">
+                            <option>Select an option</option>
+                            <option>Less than 1 year</option>
+                            <option>1-3 years</option>
+                            <option>4-10 years</option>
+                            <option>Over 10 years</option>
+                        </select>
+                    </fieldset>
+                </div>
+            </section>
+            <section role="region" aria-labelledby="improve">
+                <h2 id="improve">Improve</h2>
+                <div class="question-block">
+                    <p>3</p>
+                    <fieldset class="question" name="cost-question-one">
+                        <legend>Which part would you most like to improve?</legend>
+                        <label><input type="radio" name="gender" value="a">listen</label>
+                        <label><input type="radio" name="gender" value="b">speak</label>
+                        <label><input type="radio" name="gender" value="c">read</label>
+                        <label><input type="radio" name="gender" value="d">white</label>
+                    </fieldset>
+                </div>
+            </section>
+            <section role="region" aria-labelledby="channels">
+                <h2 id="channels">Channels</h2>
+                <div class="question-block">
+                    <p>4</p>
+                    <fieldset class="question" name="cost-question-one">
+                        <legend>What channels will you use to learn English?</legend>
+                        <label><input type="checkbox" value="0">Textbook</label>
+                        <label><input type="checkbox" value="1">Youtube</label>
+                        <label><input type="checkbox" value="2">Movie</label>
+                        <label><input type="checkbox" value="3">Drama</label>
+                        <label><input type="checkbox" value="4">Novel</label>
+                        <label><input type="checkbox" value="5">Cell phone app</label>
+                        <label><input type="checkbox" value="6">Other</label>
+                    </fieldset>
+                </div>
+            </section>
+            <section role="region" aria-labelledby="think">
+                <h2 id="think">Think</h2>
+                <div class="question-block">
+                    <p>5</p>
+                    <fieldset class="question" name="cost-question-one">
+                        <legend>What do you think is the most difficult thing about learning English?</legend>
+                        <textarea id="message" row="3" placeholder="I think. . ."></textarea>
+                    </fieldset>
+                </div>
+            </section>
+            <button type="submit">Send</button>
+        </form>
+    </main>
+    <footer>
+        <address>
+            <a href="../index.html">Back Index</a>
+        </address>
+    </footer>
+</body>
+</html>

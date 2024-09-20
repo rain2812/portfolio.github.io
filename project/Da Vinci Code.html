@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .box{
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: sans-serif;
+            font-size: 0;
+            line-height: 40px;
+            background-color: #00BFFF;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px #555;
+        }
+        .box h1{
+            font-size: 30px;
+            text-align: center;
+        }
+        .box h3{
+            
+            font-size: 20px;
+            text-align: center;
+            line-height: 48px;
+        }
+        .box input{
+            width: 100%;
+            font-size: 20px;
+            padding: 0.25em;
+            text-align: center;
+        }
+        .box button{
+            width: 50%;
+            font-size: 20px;
+            padding: 0.25em;
+        }
+        .box ul{
+            font-size: 18px;
+            list-style-position: inside;
+            list-style-type: decimal;
+            padding: 0.5em 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>終極密碼</h1>
+        <h3 id="range">數值範圍：0 ~ 100</h3>
+        <input type="number" min="1" max="99" maxlength="2" placeholder="請輸入數字" id="user" autofocus>
+        <button type="button" id="reset" onclick="window.location.reload()" disabled>再玩一次</button>
+        <button type="button" id="btn">提交</button>
+        <ul id="result"></ul>
+    </div>
+</body>
+</html>
+<script>
+    let user = document.getElementById("user");
+    let reset = document.getElementById("reset");
+    let btn = document.getElementById("btn");
+    let result = document.getElementById("result");
+    let range = document.getElementById("range");
+    let minVal = 0;
+    let maxVal = 100;
+    let txt;
+    let cpu = Math.ceil(Math.random() * 99);
+    
+    btn.addEventListener("click", function(){
+        calc();
+    })
+    user.addEventListener("keypress", function(e){
+        if (e.keyCode == 13){
+            calc();
+        }
+    })
+    
+    function calc(){
+        let userVal = Number(user.value);
+        let li = document.createElement("li");
+    
+        if (userVal == cpu){
+            txt = "你猜中了！";
+            btn.disabled = true;
+            user.disabled = true;
+            reset.disabled = false;
+        } else if (userVal <= minVal){
+            txt = `不可小於等於${minVal}(最小值)`;
+        } else if (userVal >= maxVal){
+            txt = `不可大於等於${maxVal} (最大值)`;
+        } else if (userVal > minVal && userVal < cpu){
+            minVal = userVal;
+            txt = minVal + "~" + maxVal;
+            range.textContent = "數值範圍：" + txt;
+        } else if (userVal < maxVal && userVal > cpu){
+            maxVal = userVal;
+            txt = minVal + "~" + maxVal;
+            range.textContent = "數值範圍：" + txt;
+        }
+        user.value = "";
+        user.focus();
+        li.textContent = txt;
+        result.appendChild(li);
+    }
+</script>

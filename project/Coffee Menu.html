@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Menu 咖啡菜單</title>
+    <style>
+        * { 
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* 導覽列設置 */
+        header{ 
+            background-color: rgb(0, 0, 0);
+            height: 10rem;
+            width:100%;
+        }
+
+        .logo {
+            position: relative;
+            top: 0.3rem;
+            height: 6.8rem;
+            margin: 1.25rem;
+        }
+
+        body {
+            background-image: url(../Images/Coffee.jpg);
+            background-size: 100vh;
+            background-repeat: repeat;
+            background-position: center top 150px;
+        }
+
+        .transparent-element {
+            opacity: 0.5;
+        }
+
+        h2 {
+            font-size: 4rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2, h3, p {
+            text-align: center;
+        }
+
+        .CafeMenu {
+            width: 80%;
+            background-color: rgba(219, 181, 132, 0.8);
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+            max-width: 60rem;
+        }
+
+        hr {
+            height: 2px;
+            background-color: brown;
+            border-color: brown;
+        }
+        
+        .item p {
+            display: inline-block;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .flavor, .dessert {
+            text-align: left;
+            width: 80%;
+        }
+        
+        .price {
+            text-align: right;
+            width: 20%;
+        }
+
+        .bottom-line {
+            margin: 2rem 0 1rem;
+        }
+
+        /* Footer */
+        footer {
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        .address {
+            margin-bottom: 5px;
+        }
+
+        footer a {
+            color: black;
+        }
+
+        footer a:visited {
+            color: black;
+        }
+
+        footer a:hover {
+            color: brown;
+        }
+
+        footer a:active {
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+  <header>
+        <a href="../index.html"><img src="../images/logo.png" alt="網站 Logo" class="logo"></a>
+  </header>
+  <main>
+        <section class="CafeMenu">
+            <h2>Coffee Menu 咖啡菜單</h2>
+            <hr/>
+            <div>
+                <h3>Espresso-Based Drinks 意式咖啡系列</h3>
+                <article class="item">
+                    <p class="flavor">Espresso 意式濃縮咖啡</p><p class="price">NT$100</p>
+                </article>
+                <article class="item">
+                    <p class="flavor">Americano 美式咖啡</p><p class="price">NT$115</p>
+                </article>
+                <article class="item">
+                    <p class="flavor">Cappuccino 卡布奇諾</p><p class="price">NT$130</p>
+                </article>
+                <article class="item">
+                    <p class="flavor">Latte 拿鐵咖啡</p><p class="price">NT$135</p>
+                </article>
+                <article class="item">
+                    <p class="flavor">Flat White 平白咖啡</p><p class="price">NT$135</p>
+                </article>
+                <article class="item">
+                    <p class="flavor">Macchiato 馬基朵咖啡</p><p class="price">NT$115</p>
+                </article>
+                <article class="item">
+                    <p class="flavor">Mocha 摩卡咖啡</p><p class="price">NT$145</p>
+                </article>
+            </div>
+            <div>
+                <h3>Brewed Coffee 手沖咖啡</h3>
+                <article class="item">
+                    <p class="dessert">House Blend 店家綜合咖啡</p><p class="price">NT$110</p>
+                </article>
+                <article class="item">
+                    <p class="dessert">Single Origin 單一產地咖啡</p><p class="price">NT$120</p>
+                </article>
+                <article class="item">
+                    <p class="dessert">Cold Brew 冰萃咖啡</p><p class="price">NT$130</p>
+                </article>
+                <article class="item">
+                    <p class="dessert">Iced Coffee 冰咖啡</p><p class="price">NT$115</p>
+                </article>
+            </div>
+            <div>
+                <h3>Specialty Drinks 特色飲品</h3>
+                <article class="item">
+                    <p class="dessert">Matcha Latte 抹茶拿鐵</p><p class="price">NT$150</p>
+                </article>
+                <article class="item">
+                    <p class="dessert">Chai Latte 奶茶拿鐵</p><p class="price">NT$135</p>
+                </article>
+                <article class="item">
+                    <p class="dessert">Filtered Tea 過濾茶</p><p class="price">NT$100</p>
+                </article>
+            </div>
+            <hr class="bottom-line">
+            <footer>
+                <p>
+                    <a href="../index.html" target="_blank">Visit my profolio</a>
+                </p>
+                <p class="user">Rain</p>
+            </footer>
+        </section>
+  </main>
+</body>
+</html>

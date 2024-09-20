@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Sheet</title>
+    <style>
+        * { 
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* 導覽列設置 */
+        header{ 
+            background-color: rgb(0, 0, 0);
+            height: 10rem;
+            width:100%;
+        }
+
+        .logo {
+            position: relative;
+            top: 0.3rem;
+            height: 6.8rem;
+            margin: 1.25rem;
+        }
+
+        /* 資產負債表內容 */
+        html {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            color: #0a0a23;
+        }
+
+        span[class~="sr-only"] {
+            border: 0 !important;
+            clip: rect(1px, 1px, 1px, 1px) !important; 
+            clip-path: inset(50%) !important; 
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important; 
+            white-space: nowrap !important;
+            position: absolute !important;
+            padding: 0 !important;
+            margin: -1px !important;
+        }
+
+        main {
+            margin: 1rem auto;
+        }
+
+        h2 {
+            max-width: 37.25rem;
+            margin: 0 auto;
+            padding: 1.5rem 0;
+        }
+
+        h2 .flex {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 1rem;
+        }
+
+        h2 .flex span:first-of-type {
+            font-size: 0.7em;
+        }
+
+        h2 .flex span:last-of-type {
+            font-size: 1.2em;
+        }
+
+        section {
+            max-width: 45rem;
+            margin: 0 auto;
+            border: 2px solid #d0d0d5;
+        }
+
+        #years {
+            display: flex;
+            justify-content: flex-end;
+            position: sticky;
+            top: 0;
+            color: #fff;
+            background-color: #0a0a23;
+            margin: 0 -2px;
+            padding: 0.5rem calc(1.25rem + 3px) 0.5rem 0;
+            z-index: 999;
+        }
+
+        #years span[class] {
+            font-weight: bold;
+            width: 4.5rem;
+            text-align: right;
+        }
+
+        .table-wrap {
+            padding: 0 0.75rem 1.5rem 0.75rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 0;
+            width: 100%;
+            position: relative;
+            margin-top: 3rem;
+        }
+
+
+        table caption {
+            color: #356eaf;
+            font-size: 1.3em;
+            font-weight: normal;
+            position: absolute;
+            top: -2.25rem;
+            left: 0.5rem;
+        }
+
+        tbody td {
+            width: 100vw;
+            max-width: 6rem;
+            min-width: 6rem;
+        }
+
+        tbody th {
+            width: calc(100% - 12rem);
+        }
+
+        tr[class="total"] {
+            border-bottom: 4px double #0a0a23;
+            font-weight: bold;
+        }
+
+        tr[class="total"] th {
+            text-align: left;
+            padding: 0.5rem 0 0.25rem 0.5rem;
+        }
+
+        tr.total td{
+            text-align: right;
+            padding: 0 0.25rem;
+        }
+
+        tr.total td:nth-of-type(3) {
+            padding-right: 0.5rem;
+        }
+
+        tr.total:hover {
+            background-color: #99c9ff;
+        }
+
+        td.current {
+            font-style: italic;
+        }
+
+        tr.data {
+            background: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+        }
+
+        tr.data th {
+            text-align: left;
+            padding-top: 0.3rem;
+            padding-left: 0.5rem;
+        }
+
+        tr.data th .description {
+            display: block;
+            font-style: italic;
+            font-weight: normal;
+            padding: 1rem 0 0.75rem;
+            margin-right: -13.5rem;
+        }
+
+        tr.data td {
+            vertical-align: top;
+            text-align: right;
+            padding: 0.3rem 0.25rem 0;
+        }
+
+        tr.data td:last-of-type {
+            padding-right: 0.5rem;
+        }
+
+        /* 頁尾 */
+        footer {
+            background-color: #2a2a40;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer, footer a {
+            color: #dfdfe2;
+        }
+
+        address {
+            text-align: center;
+            padding: 0.3em;
+        }
+
+        /* 響應式設計語法(my screen is 2505px) */
+        /* Desktops */
+        @media screen and (min-width: 1025px) and (max-width: 1280px) {
+            html {
+                font-size: 10px;
+            }
+        }
+
+        /* 平板裝置 */
+        @media screen and (min-width: 481px) and (max-width: 1024px) {
+            html {
+                font-size: 8px;
+            }
+
+            header {
+                height: 15rem;
+            }
+
+            .logo {
+                height: 13rem;
+                margin-left: 12.5rem;
+            }
+
+            header h1 {
+                left: 50%;
+                transform: translateX(-50%);
+                height: 120px;
+            }
+        }
+
+        /* 手機裝置 */
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 6px;
+            }
+
+            header {
+                height: 15rem;
+            }
+
+            .logo {
+                height: 10rem;
+                top: 1.5rem;
+                margin-left: 12.5rem;
+            }
+
+            header h1 {
+                left: 50%;
+                transform: translateX(-50%);
+                height: 50px;
+                width: 50vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../index.html"><img src="../images/logo.png" alt="網站 Logo" class="logo"></a>
+    </header>
+    <main>
+        <section>
+            <h2>
+                <span class="flex">
+                    <span>資產負債表</span>
+                    <span>Balance Sheet</span>
+                </span>
+            </h2>
+            <div id="years" aria-hidden="true">
+                <span class="year">2022</span>
+                <span class="year">2023</span>
+                <span class="year">2024</span>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <caption>資產 (Assets)</caption>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th><span class="sr-only year">2022</span></th>
+                            <th><span class="sr-only year">2023</span></th>
+                            <th class="current"><span class="sr-only year">2024</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="data">
+                            <th>現金 (Cash) <span class="description">This is the cash we currently have on hand.</span></th>
+                            <td>$1,056,000</td>
+                            <td>$1,475,000</td>
+                            <td class="current">$1,096,000</td>
+                        </tr>
+                        <tr class="data">
+                            <th>定存 (Fixed deposit) <span class="description">Our fixed deposit account.</span></th>
+                            <td>$945,000</td>
+                            <td>$1,544,000</td>
+                            <td class="current">$1,597,000</td>
+                        </tr>
+                        <tr class="data">
+                            <th>應收帳款 (Accounts receivable) <span class="description">Sales of goods or services, resulting in claims against customers.</span></th>
+                            <td>$3,145,000</td>
+                            <td>$7,554,000</td>
+                            <td class="current">$4,624,000</td>
+                        </tr>
+                        <tr class="total">
+                            <th>Total <span class="sr-only">Assets</span></th>
+                            <td>$5,146,000</td>
+                            <td>$10,573,000</td>
+                            <td class="current">$7,317,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>負債 (Liabilities)</caption>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th><span class="sr-only">2022</span></th>
+                            <th><span class="sr-only">2023</span></th>
+                            <th><span class="sr-only">2024</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="data">
+                            <th>貸款 (Loans) <span class="description">The outstanding balance on our startup loan.</span></th>
+                            <td>$7,054,000</td>
+                            <td>$6,847,000</td>
+                            <td class="current">$6,640,000</td>
+                        </tr>
+                        <tr class="data">
+                            <th>應付職工薪酬 (Employee compensation payable) <span class="description">Various remuneration payable to employees</span></th>
+                            <td>$1,200,000</td>
+                            <td>$1,300,000</td>
+                            <td class="current">$400,000</td>
+                        </tr>
+                        <tr class="data">
+                            <th>應付利息 (Interest payable) <span class="description">The interest that the enterprise should pay according to the contract</span></th>
+                            <td>$886,000</td>
+                            <td>$1,117,000</td>
+                            <td class="current">$168,000</td>
+                        </tr>
+                        <tr class="total">
+                            <th>Total <span class="sr-only">Liabilities</span></th>
+                            <td>$9,140,000</td>
+                            <td>$9,264,000</td>
+                            <td class="current">$7,208,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <caption>淨值 (Net Worth)</caption>
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th><span class="sr-only">2022</span></th>
+                            <th><span class="sr-only">2023</span></th>
+                            <th><span class="sr-only">2024</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="total">
+                            <th>Total <span class="sr-only">Net Worth</span></th>
+                            <td>$-3,994,000</td>
+                            <td>$1,309,000</td>
+                            <td class="current">$109,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <address>
+            <a href="../index.html">Back Index</a>
+        </address>
+    </footer>
+</body>
+</html>
