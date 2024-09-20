@@ -1,82 +1,231 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rain's Profolio</title>
-  <link rel="stylesheet" href="./css/fixed.css">
-  <link rel="stylesheet" href="./css/navigation.css">
-  <link rel="stylesheet" href="./css/typography.css">
-  <link rel="stylesheet" href="./css/footer.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>  <!--在 HTML 頁面中添加以下 script 標籤來引入 EmailJS 庫(收email用)-->
-  <script type="text/javascript">
-    (function(){
-        emailjs.init({
-          publicKey: "_Ds4-iVmzZgUts63Q", // EmailJS 中的Public key
-        });
-    })();
-  </script>
-  <script type="text/javascript" src="./sendmail/sendmail.js"></script>  <!--引入sendmail.js 當有使用者提交email時寄給我-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain's Profolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <header> <!--導覽列-->
-  <button class="menu">&#9776;</button>
-  <a href="index.html"><img src="./Images/logo.png" alt="網站 Logo" class="logo"></a>
-  <h1>Rain's Portfolio</h1>
-  <nav>
-    <ul class="top-level-menu">
-      <li><a href="About me.html">關於我(About me)</a></li>
-
-      <li>Web Design
-        <ul class="sub-menu">
-          <li><a href="./Web Design/Registration Form.html">Registration Form</a></li>
-          <li><a href="./Web Design/Coffee menu.html">Coffee menu</a></li>
-          <li><a href="./Web Design/Nutrition Label.html">Nutrition Label</a></li>
-        </ul>
-      </li>
-
-      <li>Front-end development
-        <ul class="sub-menu">
-          <li><a href="About me.html">Construction</a></li>
-        </ul>
-      </li>
-
-      <li>Python programming
-        <ul class="sub-menu">
-          <li><a href="./Python programming/Calculus.html">Calculus</a></li>
-          <li><a href="./Python programming/Software Engineering Practice.html">Software Engineering Practice</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-  </header>
-  <main> <!--首頁內容-->
-    <section class="content">
-      <span><h2>Exploring the Intersection of Design and Technology</h2></span>
-      <span><h3>Unlocking the Doors to My Design Realm</h3></span>
-      <div class="newsletter">
-        <p class="bold">Welcome to subscribe to my website newsletter.</p>
-        <p class="bold">Where you can receive updates on new content periodically!</p>
-      </div>
-      <div class="newsletter-form">
-        <div class="form-group">
-          <h4 class="name">Name <span class="wordred">*</span></h4>
-          <input type="text" class="form-control" id="name"  placeholder="Please enter your name" required />
+    <header>
+        <a href="#"><img src="./Images/logo.png" alt="Logo" class="logo"></a>
+        <menu class="d-none">
+            <ul>
+                <li><a href="#">ABOUT ME</a></li>
+                <li><a href="./project/Resume.html">RESUME</a></li>
+                <li><a href="#project">PROJECT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </menu>
+        <nav>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </nav>
+    </header>
+    <main id="about" class="flex">
+        <div class="grid-11 grid-md-6 card">
+            <img src="./images/Head Shot.jpg" alt="Head Shot">
+            <p>
+                你好！我是 Rain Lin，一位希望轉職為軟體工程師的生產線組長。
+                目前，我專注於開發於前端網頁設計和後端系統開發相關的專案，歡迎至我的專案頁面查看。
+                對技術的熱情和不斷學習的精神驅使我保持對最新產業趨勢與創新技術的關注。
+                空閒時，我喜歡打羽毛球、看電影、慢跑和探索新地方。我總是渴望接受新的挑戰，並期待 IT 產業未來的機會。
+            </p>
+            <p>
+                Hello! I'm Rain Lin, a production line supervisor aspiring to become a software engineer. 
+                I'm currently focusing on developing projects related to front-end web design and back-end system development, which you can view on my project page. 
+                My passion for technology and continuous learning motivates me to stay updated on the latest industry trends and innovations. 
+                In my free time, I enjoy playing badminton, watching movies, jogging, and exploring new places. 
+                I'm always excited to embrace new challenges and look forward to the opportunities ahead in the IT industry.
+            </p>
         </div>
-        <div class="form-group">
-          <h4 class="email">Email <span class="wordred">*</span></h4>
-          <input type="email" class="form-control" id="email"  placeholder="Please enter your email" required />
+        <div class="grid-11 grid-md-6">
+            <i class="fa-solid fa-user fa-4x"></i>
+            <h3>Personal Experience</h3>
+            <p>I am a seasoned Quality Assurance Engineer with over four years of experience and nearly three years as a Production Line Leader. I have a proven track record in problem-solving, team leadership, and process optimization.</p>
+            <i class="fa-solid fa-graduation-cap fa-4x"></i>
+            <h3>Education</h3>
+            <p>I graduated from Yunlin University of Science and Technology with a degree in Industrial Management.</p>
+            <i class="fa-solid fa-certificate fa-4x"></i>
+            <h3>Certifications</h3>
+            <p>2024/06 TQC+ 軟體開發知識(PSK3)</p>
+            <p>2024/07 TQC+ Python 3程式語言(PPY3)</p>
+            <p>2024/08 TQC+ 網頁資料擷取與分析(PWA3)</p>
         </div>
-        <div class="form-group">
-          <h4 class="message">Message</h4>
-          <textarea id="message" row="3" class="form-control" placeholder="Do you have any message for me?"></textarea>
+    </main>
+    <main id="project">
+        <div class="grid-12">
+            <h2>Projects</h2>
         </div>
-        <button type="submit" onclick="sendMail()">Send out</button>
-      </div>
-    </section>
-  </main>
-  <footer> <!--頁尾-->
-    <p>©2024 by Rain Lin</p>
-  </footer>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="http://rainportfolio.free.nf/?i=1">空海旅遊</a></h3>
+                <p>
+                    這是一個虛構的響應式旅行社網站，使用InfinityFree免費平台架設，內容包含登入動畫、導覽列設置、投影片輪播、圖片動畫等，但此作品未使用後端系統。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="http://rainportfolio.free.nf/?i=1"><img src="./images/500_500/One-page travel website.png" alt="空海旅遊"></a>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="http://fortune-telling.free.nf/">命運好好玩</a></h3>
+                <p>
+                    讓使用者選擇人際、愛情、工作，並從中抽取一支籤，使用InfinityFree免費平台架設。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="http://fortune-telling.free.nf/"><img src="./images/500_500/命運好好玩.png" alt="命運好好玩"></a>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="./project/Da Vinci Code.html">終極密碼</a></h3>
+                <p>
+                    隨機產生一個 0 ~ 100 內的數字，讓使用者猜測。透過JavaScript顯示輸入結果，藉此逐步縮小數字範圍，並設置互動按鈕讓使用者可以反覆遊玩。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="./project/Da Vinci Code.html"><img src="./images/500_500/Da Vinci Code.png" alt="Da Vinci Code"></a>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="./project/幾A幾B.html">幾A幾B</a></h3>
+                <p>
+                    隨機產生一個四位數且不重複的數字，讓使用者猜測。使用者輸入數字後反饋結果，其中A代表數字正確且位置正確，B代表數字正確但位置不對。我在此遊戲中增加了時間及次數的限制。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="./project/幾A幾B.html"><img src="./images/500_500/幾A幾B.png" alt="幾A幾B"></a>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="./project/Balance Sheet.html">Balance Sheet</a></h3>
+                <p>
+                    一個簡單的資產負債表，僅使用HTML及CSS語法。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="./project/Balance Sheet.html"><img src="./images/500_500/Balance Sheet.png" alt="Balance Sheet"></a>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="./project/Coffee Menu.html">Coffee Menu</a></h3>
+                <p>
+                    模擬咖啡廳飲品菜單，僅使用HTML及CSS語法。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="./project/Coffee Menu.html"><img src="./images/500_500/Coffee Menu.png" alt="Coffee Menu"></a>
+            </div>
+        </div>
+        <div class="grid-12 flex">
+            <div class="grid-2">
+                <h3><a href="./project/Questionnaire.html">Questionnaire</a></h3>
+                <p>
+                    此為一份線上問卷調查的設計版面。
+                </p>
+            </div>
+            <div class="grid-2">
+                <a href="./project/Questionnaire.html"><img src="./images/500_500/Questionaire.png" alt="Questionnaire"></a>
+            </div>
+        </div>
+        
+    </main>
+    <main id="contact" class="flex">
+        <div class="grid-10 grid-md-5 grid-lg-2">
+            <h3>Self-introduction</h3>
+            <p>
+                I was born in Taipei City, but have lived in Xinzhuang District, New Taipei City for 18 years. Later, I went to Yunlin to study, and then I lived alone.
+            </p>
+            <p>
+                After graduation, I moved to Taoyuan for work and began living on my own. Now, I have bought a house and settled down in Taoyuan.
+            </p>
+        </div>
+        <div class="grid-10 grid-md-5 grid-lg-2">
+            <h3>Contact me</h3>
+            <table>
+                <tr>
+                    <td><i class="fa-solid fa-location-dot"></i></td>
+                    <td>桃園市桃園區桃園路三段33巷33弄33號33樓之33</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-phone"></i></td>
+                    <td>
+                        (02)1234-5678<br>
+                        (02)2234-5678
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-fax"></i></td>
+                    <td>(02)3234-5678</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><hr></td>
+                </tr>
+                <tr>
+                    <td><i class="fa-solid fa-envelope"></i></td>
+                    <td>sample@gmail.com</td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <footer>
+        Copyright &copy; 2024 Rain. All rights reserved.<br>
+        版權所有 &copy; 2024 林科豪
+    </footer>
+    <a href="" id="gotop" class="fa-solid fa-caret-up" title="置頂"></a>
+    <div id="load">
+        <div class="box">
+            <progress max="100" value="0"></progress>
+        </div>
+        <div class="box">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
 </body>
 </html>
+<script>
+    // Menu
+    let nav = document.getElementsByTagName("nav")[0];
+    let menu = document.getElementsByTagName("menu")[0];
+    let bool = true;
+    nav.addEventListener("click",function(){
+        if(bool){
+            menu.classList.remove("d-none");
+            nav.children[0].style.transform = "rotate(26deg)";
+            nav.children[1].style.opacity = 0;
+            nav.children[2].style.transform = "rotate(-26deg)";
+        }
+        else{
+            menu.classList.add("d-none");
+            nav.children[0].style.transform = "rotate(0deg)";
+            nav.children[1].style.opacity = 1;
+            nav.children[2].style.transform = "rotate(0deg)";
+        }
+        bool = !bool;
+    })
+
+    // Go to top button
+    let gotop = document.getElementById("gotop");
+    gotop.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
